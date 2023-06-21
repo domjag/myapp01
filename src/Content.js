@@ -1,42 +1,51 @@
 import React from 'react'
 import {useState} from 'react'
+import {FaTrashAlt, faTrashAlt} from 'react-icons/fa'
+import './assets/css/sass/themes/gogo.light.blueyale.scss';
+
 
 const Content = () => {
-    const [name, setName] = useState('Dom')
-    const [count, setCount] = useState(0)
+    const [items, setItems] = useState([
 
-    const handleNameChange = () => {
-        const names = ['Dom', 'DJ Dommy Dom', 'Downtown Dom']
-        const int = Math.floor(Math.random() * 3)
-        return setName(names[int])
-    
-    
-      }
+        {
+            id: 1,
+            checked: false,
+            item: 'Big ol bag a dirt'
+        },
+        {
+            id: 2,
+            checked: false,
+            item: 'Big ol bucket a slop'
+        },
+        {
+            id: 3,
+            checked: false,
+            item: 'Big ol sack a beans'
+        }
 
-      const handleClick = () => {
-        setCount(count + 1)
-        console.log(count)
-    
-      }
-      const handleClick2 = (name) => {
-        console.log(`${name} was clicked`)
-    
-      }
-      const handleClick3 = (e) => {
-        console.log(e.target)
-    
-      }
+
+    ])
+   
 
     return (
         <main>
-           
-            <p>
-            Hello {name}!
-            </p>
-        <button onClick={handleNameChange}>Click to change name</button>
-        <button onClick={handleClick}>Click to getCount</button>
-        <button onClick={() => handleClick2('Downtown Dom')}>Click me you fool with param</button>
-        <button onClick={(e) => handleClick3(e)}>Click to view event</button>
+           <ul>
+                {items.map((item)=>(
+                    <li className="item" key={item.id}>
+                        <input 
+                            type="checkbox"
+                            checked={item.checked} />
+                            <label>{item.item}</label>
+                            <FaTrashAlt 
+                                role="button" 
+                                tabIndex="0"    
+                            />
+
+                    </li>
+                    
+                ))}
+           </ul>
+          
         </main>
     )
 }
