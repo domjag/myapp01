@@ -1,6 +1,6 @@
 import React from 'react'
 
-import './assets/css/sass/themes/gogo.light.blueyale.scss';
+// import './assets/css/sass/themes/gogo.light.blueyale.scss'; This is a gogo them ref
 import ItemList from './ItemList';
 
 
